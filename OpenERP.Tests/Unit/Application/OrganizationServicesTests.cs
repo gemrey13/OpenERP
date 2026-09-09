@@ -8,7 +8,6 @@ using OpenERP.API.Application.Organization.DTOs;
 
 namespace OpenERP.Tests.Application;
 
-
 public class OrganizationServiceTests
 {
     private static async Task<AppDbContext> CreateContextAsync()
@@ -57,11 +56,9 @@ public class OrganizationServiceTests
     [Fact]
     public async Task GetAllOrganizationAsync_ShouldReturnAllOrganizations()
     {
-        // Arrange
         await using var context = await CreateContextAsync();
         var service = new OrganizationService(context);
 
-        // Act
         var result = await service.GetAllOrganizationAsync();
 
         // Assert
@@ -89,14 +86,11 @@ public class OrganizationServiceTests
     [Fact]
     public async Task GetOrganizationByIdAsync_ShouldReturnOrganization()
     {
-        // Arrange
         await using var context = await CreateContextAsync();
         var service = new OrganizationService(context);
 
-        // Act
         var result = await service.GetOrganizationByIdAsync(1);
 
-        // Assert
         result.Should().NotBeNull();
 
         result!.Id.Should().Be(1);
@@ -109,14 +103,11 @@ public class OrganizationServiceTests
     [Fact]
     public async Task GetOrganizationByIdAsync_ShouldReturnNull_WhenOrganizationDoesNotExist()
     {
-        // Arrange
         await using var context = await CreateContextAsync();
         var service = new OrganizationService(context);
 
-        // Act
         var result = await service.GetOrganizationByIdAsync(999);
 
-        // Assert
         result.Should().BeNull();
     }
 
@@ -147,5 +138,62 @@ public class OrganizationServiceTests
         organization.Should().NotBeNull();
         organization!.Name.Should().Be("Company Four");
         organization.Code.Should().Be("CO4");
+    }
+
+    [Fact]
+    public async Task UpdateOrganizationAsync_ShouldUpdateOrganization()
+    {
+        await using var context = await CreateContextAsync();
+        var service = new OrganizationService(context);
+
+        var organization = new UpdateOrganizationDto
+        {
+            Name = "Super Company One",
+            ContactInformation = "company1@example.com",
+            Status = OrganizationStatus.Active
+        };
+
+        var result = await service.UpdateOrganizationAsync(1, organization);
+
+        result.Should().BeTrue();
+        
+        var org = await context.Organizations
+            .FirstOrDefaultAsync(x => x.Code == "CO1");
+
+        org.Should().NotBeNull();
+        org.Name.Should().Be("Super Company One");
+    }
+
+    [Fact]
+    public async Task DeleteOrganizationAsync_ShouldDeleteOrganization()
+    {
+        await using var context = await CreateContextAsync();
+        var service = new OrganizationService(context);
+
+        var result = await service.DeleteOrganizationAsync(1);
+
+        result.Should().BeTrue();
+        
+        var org = await context.Organizations
+            .FirstOrDefaultAsync(x => x.Code == "CO1");
+
+        org.Should().BeNull();
+    }
+
+    [Fact]
+    public async Task DeactivateOrganizationAsync_ShouldDeactivateOrganization()
+    {
+        await using var context = await CreateContextAsync();
+        var service = new OrganizationService(context);
+
+        var result = await service.DeactivateOrganizationAsync(1);
+
+        result.Should().BeTrue();
+        
+        var org = await context.Organizations
+            .FirstOrDefaultAsync(x => x.Code == "CO1");
+
+        org.Should().NotBeNull();
+        org.Status.Should().Be(OrganizationStatus.Inactive);
     }
 }
