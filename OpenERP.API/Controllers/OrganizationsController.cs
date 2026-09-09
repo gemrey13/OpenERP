@@ -39,4 +39,11 @@ public class OrganizationsController(IOrganizationService service) : ControllerB
         var deletedOrg = await service.DeleteOrganizationAsync(id);
         return deletedOrg ? NoContent() : NotFound("Organization is not found.");
     }
+
+    [HttpPatch("{id}")]
+    public async Task<ActionResult> DeactivateOrganization(int id)
+    {
+        var deletedOrg = await service.DeactivateOrganizationAsync(id);
+        return deletedOrg ? NoContent() : NotFound("Organization is not found.");
+    }
 }

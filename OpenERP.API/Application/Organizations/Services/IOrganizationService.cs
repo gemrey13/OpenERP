@@ -10,4 +10,5 @@ public interface IOrganizationService
     Task<OrganizationDto> CreateOrganizationAsync(CreateOrganizationDto organization);
     Task<bool> UpdateOrganizationAsync(int id, UpdateOrganizationDto organization);
     Task<bool> DeleteOrganizationAsync(int id);
+    Task<bool> DeactivateOrganizationAsync(int id);
 }

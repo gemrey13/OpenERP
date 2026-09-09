@@ -87,4 +87,16 @@ public class OrganizationService(AppDbContext context) : IOrganizationService
         await context.SaveChangesAsync();
         return true;
     }
+
+    public async Task<bool> DeactivateOrganizationAsync(int id)
+    {
+        var organization = await context.Organizations.FirstOrDefaultAsync(org => org.Id == id);
+
+        if (organization is null) return false;
+
+        organization.Status = OrganizationStatus.Inactive;
+
+        await context.SaveChangesAsync();
+        return true;
+    }
 }
