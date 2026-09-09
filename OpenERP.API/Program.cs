@@ -1,5 +1,5 @@
 using Microsoft.EntityFrameworkCore;
-using OpenERP.API.Application.Organization.Services;
+using OpenERP.API.Application.Organizations.Services;
 using OpenERP.API.Infrastructure.Persistence;
 using Scalar.AspNetCore;
 

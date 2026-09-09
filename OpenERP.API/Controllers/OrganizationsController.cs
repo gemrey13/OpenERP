@@ -1,6 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
-using OpenERP.API.Application.Organization.DTOs;
-using OpenERP.API.Application.Organization.Services;
+using OpenERP.API.Application.Organizations.DTOs;
+using OpenERP.API.Application.Organizations.Services;
 
 namespace OpenERP.API.Controllers;
 

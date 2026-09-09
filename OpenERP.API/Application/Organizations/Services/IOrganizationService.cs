@@ -1,6 +1,6 @@
-using OpenERP.API.Application.Organization.DTOs;
+using OpenERP.API.Application.Organizations.DTOs;
 
-namespace OpenERP.API.Application.Organization.Services;
+namespace OpenERP.API.Application.Organizations.Services;
 
 
 public interface IOrganizationService

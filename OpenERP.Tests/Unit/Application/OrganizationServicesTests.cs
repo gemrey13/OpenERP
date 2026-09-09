@@ -1,10 +1,10 @@
 using Microsoft.EntityFrameworkCore;
 using FluentAssertions;
-using OpenERP.API.Application.Organization.Services;
+using OpenERP.API.Application.Organizations.Services;
 using OpenERP.API.Domain.Entities;
 using OpenERP.API.Domain.Enum;
 using OpenERP.API.Infrastructure.Persistence;
-using OpenERP.API.Application.Organization.DTOs;
+using OpenERP.API.Application.Organizations.DTOs;
 
 namespace OpenERP.Tests.Application;
 

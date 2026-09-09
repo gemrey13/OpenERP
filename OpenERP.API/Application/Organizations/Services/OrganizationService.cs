@@ -1,11 +1,10 @@
 using Microsoft.EntityFrameworkCore;
-using OpenERP.API.Application.Organization.DTOs;
+using OpenERP.API.Application.Organizations.DTOs;
 using OpenERP.API.Infrastructure.Persistence;
 using OpenERP.API.Domain.Enum;
+using OpenERP.API.Domain.Entities;
 
-using OrganizationEntity = OpenERP.API.Domain.Entities.Organization;
-
-namespace OpenERP.API.Application.Organization.Services;
+namespace OpenERP.API.Application.Organizations.Services;
 
 public class OrganizationService(AppDbContext context) : IOrganizationService
 {
@@ -41,7 +40,7 @@ public class OrganizationService(AppDbContext context) : IOrganizationService
 
     public async Task<OrganizationDto> CreateOrganizationAsync(CreateOrganizationDto organization)
     {
-        var newOrg = new OrganizationEntity{
+        var newOrg = new Organization{
             Name = organization.Name,
             Code = organization.Code,
             ContactInformation = organization.ContactInformation,

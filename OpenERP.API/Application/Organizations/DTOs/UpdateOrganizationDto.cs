@@ -1,7 +1,7 @@
 using System.ComponentModel.DataAnnotations;
 using OpenERP.API.Domain.Enum;
 
-namespace OpenERP.API.Application.Organization.DTOs;
+namespace OpenERP.API.Application.Organizations.DTOs;
 
 // Update Request DTO
 public record UpdateOrganizationDto
