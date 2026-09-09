@@ -16,7 +16,7 @@ jobs:
             uses: actions/setup-dotnet@v4
             with:
                 dotnet-version: 10.0.x
-                cache: true 
+                # cache: true 
             
           - name: Restore API
             run: dotnet restore OpenERP.API/OpenERP.API.csproj
