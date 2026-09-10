@@ -8,7 +8,7 @@ namespace OpenERP.API.Application.Organizations.Services;
 
 public class OrganizationService(AppDbContext context) : IOrganizationService
 {
-    public async Task<List<OrganizationDto>> GetAllOrganizationAsync() 
+    public async Task<List<OrganizationDto>> GetAllOrganizationAsync()
         => await context.Organizations
         .Select(org => new OrganizationDto
         (
@@ -40,7 +40,8 @@ public class OrganizationService(AppDbContext context) : IOrganizationService
 
     public async Task<OrganizationDto> CreateOrganizationAsync(CreateOrganizationDto organization)
     {
-        var newOrg = new Organization{
+        var newOrg = new Organization
+        {
             Name = organization.Name,
             Code = organization.Code,
             ContactInformation = organization.ContactInformation,

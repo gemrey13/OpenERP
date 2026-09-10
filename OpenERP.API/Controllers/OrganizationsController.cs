@@ -10,7 +10,7 @@ public class OrganizationsController(IOrganizationService service) : ControllerB
 {
     [HttpGet]
     public async Task<ActionResult<List<OrganizationDto>>> GetAllOrganizations()
-        => Ok(await service.GetAllOrganizationAsync()); 
+        => Ok(await service.GetAllOrganizationAsync());
 
     [HttpGet("{id}")]
     public async Task<ActionResult<OrganizationDto>> GetOrganizationById(int id)
