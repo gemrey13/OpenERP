@@ -94,7 +94,7 @@ public class OrganizationServiceTests
         result.Should().NotBeNull();
 
         result!.Id.Should().Be(1);
-        result.Name.Should().Be("Company Two");
+        result.Name.Should().Be("Company One");
         result.Code.Should().Be("CO1");
         result.ContactInformation.Should().Be("company1@example.com");
         result.Status.Should().Be(OrganizationStatus.Active);
