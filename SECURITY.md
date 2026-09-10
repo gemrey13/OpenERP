@@ -99,3 +99,4 @@ Before deploying OpenERP in production, organizations should perform their own:
 * Data-protection assessment
 
 The project should not be assumed to be production-ready solely because a feature or release is available.
+s
