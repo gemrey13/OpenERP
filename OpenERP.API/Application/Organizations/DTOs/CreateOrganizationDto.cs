@@ -1,5 +1,4 @@
 using System.ComponentModel.DataAnnotations;
-using OpenERP.API.Domain.Enum;
 
 namespace OpenERP.API.Application.Organizations.DTOs;
 

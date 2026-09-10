@@ -1,8 +1,8 @@
 using Microsoft.EntityFrameworkCore;
 using OpenERP.API.Application.Organizations.DTOs;
-using OpenERP.API.Infrastructure.Persistence;
-using OpenERP.API.Domain.Enum;
 using OpenERP.API.Domain.Entities;
+using OpenERP.API.Domain.Enum;
+using OpenERP.API.Infrastructure.Persistence;
 
 namespace OpenERP.API.Application.Organizations.Services;
 
